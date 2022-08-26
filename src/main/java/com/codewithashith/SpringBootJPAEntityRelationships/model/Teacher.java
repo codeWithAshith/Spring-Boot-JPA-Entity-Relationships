@@ -15,8 +15,8 @@ public class Teacher {
     private Long id;
     private String name;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "teacher")
-    private Set<Subject> subjects;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
+    private Address address;
 
 }
